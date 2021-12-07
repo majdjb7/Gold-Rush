@@ -67,6 +67,11 @@ class GoldRush extends Matrix {
             }
         }
     }
+
+    generateCoins() {
+        let emptySpaces = (this.row*this.col-2)
+        console.log(Math.row(emptySpaces/2))
+    }
     
 }
 
