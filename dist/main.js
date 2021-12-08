@@ -1,13 +1,19 @@
 
 let board
+function doStuff  (event) {
+    // console.log(document.getElementById('button').value);
+        let dimensions = event.target.value
+        board = new GoldRush(dimensions, dimensions)
+        board.generateCoins()
+        board.print()
+        let render = new Renderer(board);
+
+        render.renderBoard()
+      }
+  
 $(document).on('click', '#submit', function() {
     console.log($('#action').value)
-    board = new GoldRush(value, value)
-    board.generateCoins()
-    board.print()
-    let render = new Renderer(board);
-
-render.renderBoard()
+    
 })
 
 

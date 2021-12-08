@@ -14,19 +14,15 @@
       <h1 class="heading">Gold Rush Game</h1>
     </div>
 
+    <label for="action">Choose Your Game Dimensions:</label>
+    <select onchange="doStuff(event)">
+      <option value="5">5x5</option>
+      <option value="6">6x6</option>
+      <option value="7">7x7</option>
+      <option value="8">8x8</option>
+      <option value="9">9x9</option>
+    </select>
 
-    <form>
-      <label for="action">Choose Your Game Dimensions:</label>
-      <select name="action" id="action">
-        <option value="5">5x5</option>
-        <option value="6">6x6</option>
-        <option value="7">7x7</option>
-        <option value="8">8x8</option>
-        <option value="9">9x9</option>
-
-      </select> 
-      <button id="submit" type="submit" name="submit" value="submit">Do It </button>
-    </form>
     
     
     <div class="ScoreBox"></div>
