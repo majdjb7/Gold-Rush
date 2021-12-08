@@ -12,6 +12,7 @@ class GoldRush extends Matrix {
     }
 
     checkIfLegal(legalPlayer, direction) {
+        
         if(legalPlayer.x == 0 && direction == "up") {
             return false
         }

@@ -10,12 +10,29 @@
 
 <body>
 
-        <div class="container">
-          <h1 class="heading">Gold Rush Game</h1>
-        </div>
+    <div class="container">
+      <h1 class="heading">Gold Rush Game</h1>
+    </div>
+
+
+    <form>
+      <label for="action">Choose Your Game Dimensions:</label>
+      <select name="action" id="action">
+        <option value="5">5x5</option>
+        <option value="6">6x6</option>
+        <option value="7">7x7</option>
+        <option value="8">8x8</option>
+        <option value="9">9x9</option>
+
+      </select> 
+      <button id="submit" type="submit" name="submit" value="submit">Do It </button>
+    </form>
+    
     
     <div class="ScoreBox"></div>
-    <div class="MatrixBox"></div>
+    <div id="matrix-border">
+      <div class="MatrixBox"></div>
+    </div>
 
     <script id="score-template" type="text/x-handlebars-template">
       <div id="weather_wrapper">
@@ -25,18 +42,12 @@
     </script>
 
     <script id="matrix-template" type="text/x-handlebars-template">
-        <div id="weather_wrapper">
-          <table border="6">
+        <div id="matrix-wrapper">
+          <table id="board">
             <tr>
               {{#each matrix}}
-
               <td  height="19" width="90px">{{0}}</td>
-              <!-- <td height="19" width="20%">{{1}}</td>
-              <td height="19" width="20%">{{2}}</td>
-              <td height="19" width="20%">{{3}}</td>
-              <td height="19" width="20%">{{4}}</td> -->
               {{/each}}
-
             </tr>
             </table>
         </div>

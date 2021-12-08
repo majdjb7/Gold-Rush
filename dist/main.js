@@ -1,11 +1,19 @@
-let board = new GoldRush(9, 9)
 
-board.generateCoins()
-board.print()
-
-let render = new Renderer(board);
+let board
+$(document).on('click', '#submit', function() {
+    console.log($('#action').value)
+    board = new GoldRush(value, value)
+    board.generateCoins()
+    board.print()
+    let render = new Renderer(board);
 
 render.renderBoard()
+})
+
+
+
+
+
 // render.renderScores()
 $(document).keypress(function (e) {
     if (e.which == 119) {
