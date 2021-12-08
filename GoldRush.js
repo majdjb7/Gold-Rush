@@ -6,8 +6,8 @@ class GoldRush extends Matrix {
         this.row = row
         this.col = col
         this.matrix = this.generateMatrix(row, col)
-        this.player1_pos = {x: 0, y: 0}
-        this.player2_pos = {x: row-1, y: col-1}
+        this.player1 = {x: 0, y: 0, score: 0}
+        this.player2 = {x: row-1, y: col-1, score: 0}
         
     }
 
@@ -28,18 +28,25 @@ class GoldRush extends Matrix {
             return true
         }
     }
+    
+    editScores(playerToMove) {
+        let isCoin = this.get(playerToMove.x, playerToMove.y)
+        if(isCoin == 'c') {
+            playerToMove.score += 10
+        }
+    }
 
     movePlayer(player, direction) {
         let playerToMove
         if (player == 1) {
-            playerToMove = this.player1_pos
-            this.checkIfLegal(playerToMove, direction) ? this.alter(this.player1_pos.x, this.player1_pos.y, '.')
+            playerToMove = this.player1
+            this.checkIfLegal(playerToMove, direction) ? this.alter(this.player1.x, this.player1.y, '.')
             : null
 
         }
         else if (player == 2) {
-            playerToMove = this.player2_pos
-            this.checkIfLegal(playerToMove, direction) ? this.alter(this.player2_pos.x, this.player2_pos.y, '.')
+            playerToMove = this.player2
+            this.checkIfLegal(playerToMove, direction) ? this.alter(this.player2.x, this.player2.y, '.')
             : null
         }
         
@@ -58,7 +65,7 @@ class GoldRush extends Matrix {
                     playerToMove.y = playerToMove.y + 1
                     break;
             }
-        
+            this.editScores(playerToMove)
             if(player == 1) {
                 this.alter(playerToMove.x, playerToMove.y, 1)
             }
@@ -74,8 +81,8 @@ class GoldRush extends Matrix {
             let coin_y = Math.floor(Math.random() * this.col);
             this.alter(coin_x, coin_y, "c")
         }
-        this.alter(this.player1_pos.x, this.player1_pos.y, 1)
-        this.alter(this.player2_pos.x, this.player2_pos.y, 2)
+        this.alter(this.player1.x, this.player1.y, 1)
+        this.alter(this.player2.x, this.player2.y, 2)
     }
 
     generateCoins() {
