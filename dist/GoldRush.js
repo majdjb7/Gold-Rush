@@ -67,10 +67,10 @@ class GoldRush extends Matrix {
             }
             this.editScores(playerToMove)
             if(player == 1) {
-                this.alter(playerToMove.x, playerToMove.y, 1)
+                this.alter(playerToMove.x, playerToMove.y, "1")
             }
             else if (player == 2){
-                this.alter(playerToMove.x, playerToMove.y, 2)
+                this.alter(playerToMove.x, playerToMove.y, "2")
             }
         }
     }
@@ -81,8 +81,8 @@ class GoldRush extends Matrix {
             let coin_y = Math.floor(Math.random() * this.col);
             this.alter(coin_x, coin_y, "c")
         }
-        this.alter(this.player1.x, this.player1.y, 1)
-        this.alter(this.player2.x, this.player2.y, 2)
+        this.alter(this.player1.x, this.player1.y, "1")
+        this.alter(this.player2.x, this.player2.y, "2")
     }
 
     generateCoins() {

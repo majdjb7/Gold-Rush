@@ -13,24 +13,31 @@
         <div class="container">
           <h1 class="heading">Gold Rush Game</h1>
         </div>
-
-    <div class="MatrixBox"></div>
     
+    <div class="ScoreBox"></div>
+    <div class="MatrixBox"></div>
+
+    <script id="score-template" type="text/x-handlebars-template">
+      <div id="weather_wrapper">
+        <div div="player1-score">Player 1 Score: {{p1_score}}</div>
+        <div div="player2-score">Player 2 Score: {{p2_score}}</div>
+      </div>
+    </script>
 
     <script id="matrix-template" type="text/x-handlebars-template">
         <div id="weather_wrapper">
-          <div div="player1-score">Player 1 Score: {{player1.score}}</div>
-          <div div="player2-score">Player 2 Score: {{player2.score}}</div>
-          <table border="6" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="60%">
-            {{#each matrix}}
+          <table border="6">
             <tr>
-              <td height="19" width="20%">{{0}}</td>
-              <td height="19" width="20%">{{1}}</td>
+              {{#each matrix}}
+
+              <td  height="19" width="90px">{{0}}</td>
+              <!-- <td height="19" width="20%">{{1}}</td>
               <td height="19" width="20%">{{2}}</td>
               <td height="19" width="20%">{{3}}</td>
-              <td height="19" width="20%">{{4}}</td>
+              <td height="19" width="20%">{{4}}</td> -->
+              {{/each}}
+
             </tr>
-            {{/each}}
             </table>
         </div>
     </script>

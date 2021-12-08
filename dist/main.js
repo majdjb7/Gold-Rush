@@ -1,60 +1,45 @@
-let board = new GoldRush(5, 5)
+let board = new GoldRush(9, 9)
 
 board.generateCoins()
-
-console.log("P1 score: ", board.player1.score)
-board.movePlayer(1, "down")
-board.movePlayer(1, "down")
-board.movePlayer(2, "up")
-board.movePlayer(2, "up")
-board.movePlayer(2, "up")
-board.movePlayer(2, "up")
-
-
-board.movePlayer(1, "down")
 board.print()
-
-console.log("P1 score: ", board.player1.score)
-console.log("P2 score: ", board.player2.score)
 
 let render = new Renderer(board);
 
 render.renderBoard()
-
+// render.renderScores()
 $(document).keypress(function (e) {
-
-    if (e.key === 'W') {
+    if (e.which == 119) {
           board.movePlayer(1, "up")
           render.renderBoard()
     }
-    else if (e.key === 'A') {
+    else if (e.which == 097) {
         board.movePlayer(1, "left")
         render.renderBoard()
     }
-    else if (e.key === 'D') {
+    else if (e.which == 100) {
         board.movePlayer(1, "right")
         render.renderBoard()
     }
-    else if (e.key === 'S') {
+    else if (e.which == 115) {
         board.movePlayer(1, "down")
         render.renderBoard()
     }
 
-    if (e.key === 'I') {
+    if (e.which == 105) {
         board.movePlayer(2, "up")
         render.renderBoard()
-    }
-    else if (e.key === 'J') {
-        board.movePlayer(2, "left")
-        render.renderBoard()
-    }
-    else if (e.key === 'L') {
-        board.movePlayer(2, "right")
-        render.renderBoard()
-    }
-    else if (e.key === 'K') {
-        board.movePlayer(2, "down")
-        render.renderBoard()
-    }
-
+  }
+  else if (e.which == 106) {
+      board.movePlayer(2, "left")
+      render.renderBoard()
+  }
+  else if (e.which == 108) {
+      board.movePlayer(2, "right")
+      render.renderBoard()
+  }
+  else if (e.which == 107) {
+      board.movePlayer(2, "down")
+      render.renderBoard()
+  }
+  
 })
