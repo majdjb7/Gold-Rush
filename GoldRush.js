@@ -68,9 +68,19 @@ class GoldRush extends Matrix {
         }
     }
 
+    fillBoardWithCoins(numOFCoinsToGenerate) {
+        for(let i=0; i<numOFCoinsToGenerate; i++) {
+            let coin_x = Math.floor(Math.random() * this.row);
+            let coin_y = Math.floor(Math.random() * this.col);
+            this.alter(coin_x, coin_y, "c")
+        }
+        this.alter(this.player1_pos.x, this.player1_pos.y, 1)
+        this.alter(this.player2_pos.x, this.player2_pos.y, 2)
+    }
+
     generateCoins() {
         let emptySpaces = (this.row*this.col-2)
-        console.log(Math.row(emptySpaces/2))
+        this.fillBoardWithCoins(emptySpaces)
     }
     
 }
