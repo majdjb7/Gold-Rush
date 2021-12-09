@@ -2,7 +2,6 @@
 let render
 let board
 function doStuff  (event) {
-    // console.log(document.getElementById('button').value);
         let dimensions = event.target.value
         board = new GoldRush(dimensions, dimensions)
         board.generateCoins()

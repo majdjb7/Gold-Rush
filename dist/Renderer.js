@@ -26,8 +26,6 @@ class Renderer {
             newHTML = this.template({ matrix: this.board.matrix[i] });
             $('.MatrixBox').append(newHTML);
         }
-        // var newHTML = this.template(tableInfo);
-        // $('.MatrixBox').append(newHTML);
         this.renderScores()
     }
 

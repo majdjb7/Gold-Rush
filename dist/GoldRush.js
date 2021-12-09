@@ -1,5 +1,3 @@
-// const Matrix = require('./Matrix')
-
 class GoldRush extends Matrix {
     constructor(row, col) {
         super(row, col);
@@ -106,5 +104,3 @@ class GoldRush extends Matrix {
     }
     
 }
-
-// module.exports = GoldRush
