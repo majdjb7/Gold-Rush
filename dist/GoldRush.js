@@ -11,8 +11,20 @@ class GoldRush extends Matrix {
         
     }
 
-    checkIfLegal(legalPlayer, direction) {
-        
+    checkIfLegal(legalPlayer, otherPlayer, direction) {
+        if(direction == "up" && otherPlayer.x == legalPlayer.x - 1 && otherPlayer.y == legalPlayer.y) {
+            return false
+        }
+        else if(direction == "down" && otherPlayer.x == legalPlayer.x + 1 && otherPlayer.y == legalPlayer.y) {
+            return false
+        }
+        else if(direction == "left" && otherPlayer.y == legalPlayer.y - 1 && otherPlayer.x == legalPlayer.x) {
+            return false
+        }
+        else if(direction == "right" && otherPlayer.y == legalPlayer.y + 1 && otherPlayer.x == legalPlayer.x) {
+            return false
+        }
+
         if(legalPlayer.x == 0 && direction == "up") {
             return false
         }
@@ -38,20 +50,22 @@ class GoldRush extends Matrix {
     }
 
     movePlayer(player, direction) {
-        let playerToMove
+        let playerToMove, otherPlayer
         if (player == 1) {
             playerToMove = this.player1
-            this.checkIfLegal(playerToMove, direction) ? this.alter(this.player1.x, this.player1.y, '.')
+            otherPlayer = this.player2
+            this.checkIfLegal(playerToMove, otherPlayer, direction) ? this.alter(this.player1.x, this.player1.y, '.')
             : null
 
         }
         else if (player == 2) {
             playerToMove = this.player2
-            this.checkIfLegal(playerToMove, direction) ? this.alter(this.player2.x, this.player2.y, '.')
+            otherPlayer = this.player1
+            this.checkIfLegal(playerToMove, otherPlayer, direction) ? this.alter(this.player2.x, this.player2.y, '.')
             : null
         }
         
-        if(this.checkIfLegal(playerToMove, direction)) {
+        if(this.checkIfLegal(playerToMove, otherPlayer, direction)) {
             switch(direction) {
                 case "up":
                     playerToMove.x = playerToMove.x - 1

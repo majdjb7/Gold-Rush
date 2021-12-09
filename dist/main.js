@@ -1,4 +1,5 @@
 
+let render
 let board
 function doStuff  (event) {
     // console.log(document.getElementById('button').value);
@@ -6,7 +7,7 @@ function doStuff  (event) {
         board = new GoldRush(dimensions, dimensions)
         board.generateCoins()
         board.print()
-        let render = new Renderer(board);
+        render = new Renderer(board);
 
         render.renderBoard()
       }
